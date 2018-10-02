@@ -6,26 +6,13 @@ class ToDo extends Component {
         super();
 
         this.state = {
-            newTodo: '',
-            list: [
-                { name: 'clean room', done: false },
-                { name: 'make pancakes', done: false },
-                { name: 'spend 3 hours on reddit', done: true }
-            ]
+            newTodo: ''
         }
     }
 
     handleToDoCheckBoxChange = (event, i) => {
         const value = event.target.checked;
-
-        this.setState({ 'list':
-            this.state.list.map((obj, j) => ({
-                ...obj,
-                ...(i === j) && {
-                    done: value
-                }
-            }))
-        })
+        this.props.toggleTodo({index: i, value});
     }
 
     handleNewToDoChange = (event) => {
@@ -33,15 +20,7 @@ class ToDo extends Component {
     }
 
     addTodo = () => {
-        this.setState({ 'list': 
-            [
-                ...this.state.list,
-                {
-                    name: this.state.newTodo,
-                    done: false
-                }
-            ]
-        })
+        this.props.addTodo({name: this.state.newTodo});
     }
 
     render() {
@@ -59,7 +38,7 @@ class ToDo extends Component {
                 </div>
 
                 <ul>
-                    {this.state.list.map((obj, i) => (
+                    {this.props.todoList.map((obj, i) => (
                         <li key={i}>
                             <input
                                 name={i}
@@ -74,7 +53,7 @@ class ToDo extends Component {
 
                 <hr />
                 <h2>Debug Stuff</h2>
-                <pre>{JSON.stringify(this.state.list, null, 2)}</pre>
+                <pre>{JSON.stringify(this.props.todoList, null, 2)}</pre>
             </div>
         );
     }
