@@ -21,10 +21,10 @@ const App = () => {
 
                 <Router>                                                
                     <div>                                               
-                        <ul>                                            
-                            <li><Link to="/">Home</Link></li>           
-                            <li><Link to="/about">About</Link></li>     
-                            <li><Link to="/todo-app">ToDo</Link></li>       
+                        <ul className="list-group">                                            
+                            <li className="list-group-item"><Link to="/">Home</Link></li>           
+                            <li className="list-group-item"><Link to="/about">About</Link></li>     
+                            <li className="list-group-item"><Link to="/todo-app">ToDo</Link></li>       
                         </ul>                                           
                                                                         
                         <hr/>                                           

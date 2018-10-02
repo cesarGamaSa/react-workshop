@@ -26,7 +26,7 @@ class TodoAdder extends Component {
                     value={this.state.newTodo}
                     onChange={this.handleNewToDoChange}
                 />
-                <button onClick={this.addTodo}>Add ToDo</button>
+                <button onClick={this.addTodo} className="btn btn-success disabled">Add ToDo</button>
             </div>
         )
     }

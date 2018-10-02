@@ -1,15 +1,26 @@
 import React from "react";
+import { Route } from 'react-router-dom';
 
-import TodoList from './todo-list';
-import TodoAdder from './todo-adder';
+import TodoList from './shared/todo-list';
+import TodoAdder from './shared/todo-adder';
+import TodoView from './todo-view';
 
 const ToDo = () => (
     <div>
         <h1>ToDo works!</h1>
 
-        <TodoAdder />
+        <div className="row">
+            <div className="col-6">
+                <TodoAdder />
+            </div>
 
-        <TodoList />
+            <div className="col-6">
+                <TodoList />
+            </div>
+        </div>
+
+        <Route path="/todo-app/:id" component={TodoView}/>
+        
     </div>
 );
 
